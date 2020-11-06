@@ -2,32 +2,20 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}"> 
+    <link rel="stylesheet" href="{% static 'accountapp/login.css' %}" type="text/css"> 
 {% endblock %}
 
 {% block content %}
-<h1>upload page</h1>
+<h1>info</h1>
+<h1>{{user.username}}님 환영합니다</h1>
+
 <table>
-    <form action="{% url 'mainapp:upload' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        장소명<br>
-        <input type="text" name="name"><br>
-        후기<br>
-        <textarea rows="10" cols="50" name="comment"></textarea><br>
-        이미지<br>
-        <input type="file" name="image"><br>
-        평점<br>
-        <input type="number" name="rating"><br>
-        방문날짜<br>
-        <input type="date" name="date"><br>
-        항목<br>
-        <select name="item">
-            <option value="전시회">전시회</option>
-            <option value="박람회">박람회</option>
-            <option value="공연">공연</option>
-        </select><br>
-        지역<br>
-        <select name="country">
+    <form action="{% url 'accountapp:information'%}" method="POST">
+    {% csrf_token %}
+        나이를 선택해주세요<br>
+        <input type="number" name="age"><br>
+        지역을 선택해주세요<br>
+        <select name="region">
             <option value="서울">서울</option>
             <option value="부산">부산</option>
             <option value="대구">대구</option>
@@ -45,12 +33,13 @@
             <option value="경상남도">경상남도</option>
             <option value="제주도">제주도</option>
         </select><br>
-        도시<br>
-        <input type="text" name="city"><br>
-
-        <input type="submit" value="글쓰기">
+        성별을 선택해주세요<br>
+        <select name="gender">
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+        </select><br>
+    
+        <input type="submit" value="확인">
     </form>
 </table>
-
-<a href="{% url 'mainapp:map' %}">뒤로가기</a>
 {% endblock %}

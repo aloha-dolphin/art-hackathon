@@ -14,11 +14,10 @@ body{
 }
 #nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(231, 190, 167);
+    background-image: url('nav_background.png');
     box-shadow: 0 0 10px gray;
-    padding-right: 5px;
 }
 
 a{
@@ -27,8 +26,6 @@ a{
 #logo{
     height: 30px;
     padding: 10px;
-    padding-left: 0;
-
 }
 
 #text_logo{
